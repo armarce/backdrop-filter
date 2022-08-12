@@ -246,21 +246,16 @@ class App{
 }
 
 const images = [
-    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/carousel/1.webp',
-    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/carousel/2.webp',
-    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/carousel/3.jpg',
-    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/carousel/4.webp',
-    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/carousel/5.jpg',
-    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/carousel/camels-gd86999c00_1280.jpg',
-    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/carousel/foz-do-iguacu-g1190e905d_1280.jpg',
-    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/carousel/grassland-gff1701c43_1280.jpg',
-    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/carousel/iceland-gf4872b4df_1280.jpg',
-    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/carousel/netherlands-gf2ab7325d_1280.jpg',
-    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/carousel/norway-ge6d1df026_1280.jpg',
-    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/carousel/row-houses-g56486a6f6_1280.jpg',
-    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/carousel/village-ge2ada5f99_1280.jpg',
-    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/carousel/winter-landscape-g570cb6895_1280.jpg',
-    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/aurora.jpg'
+    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/camels.jpg',
+    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/dawn.jpg',
+    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/grassland.jpg',
+    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/iceland.jpg',
+    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/netherlands.jpg',
+    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/norway.jpg',
+    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/row-houses.jpg',
+    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/sea.jpg',
+    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/village.jpg',
+    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/winter-landscape.jpg'
     ];
 
 const app = new App("box", images);
