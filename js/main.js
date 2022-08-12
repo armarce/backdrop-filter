@@ -81,7 +81,7 @@ class App{
 
             localStorage.setItem('opacity', opacity);
             
-            let rgba = window.getComputedStyle(this.box)['background-color']
+            let rgba = window.getComputedStyle(this.box)['background-color'];
             rgba = rgba.replace(/(\d\.\d\d\))|(\d\.\d\))|(\s\d\))/g, `${opacity})`);
 
             this.box.style['background-color'] =  rgba;
@@ -246,13 +246,13 @@ class App{
 }
 
 const images = [
+    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/row-houses.jpg',
     'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/camels.jpg',
     'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/dawn.jpg',
     'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/grassland.jpg',
     'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/iceland.jpg',
     'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/netherlands.jpg',
     'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/norway.jpg',
-    'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/row-houses.jpg',
     'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/sea.jpg',
     'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/village.jpg',
     'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/winter-landscape.jpg'
