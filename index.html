@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="./css/main.css"/>  
+        <title>CSS APP</title>
+    </head>
+    <body>
+        <main>
+            <div id="box"></div>
+            <section>
+                <label for="color">Chose color</label>
+                <input type="color" id="color" value="#FFFFFF"/>
+
+                <label for="opacity">Opacity</label>
+                <input type="range" id="opacity" value="100" data-unit="%"/>
+                <span>0</span>
+
+                <label for="blur">Blur</label>
+                <input type="range" id="blur" value="0" min="0" max="200" data-unit="px"/>
+                <span>0</span>
+
+                <label for="contrast">Contrast</label>
+                <input type="range" id="contrast" value="100" data-unit="%"/>
+                <span>0</span>
+
+                <label for="brightness">Brightness</label>
+                <input type="range" id="brightness" value="100" data-unit="%"/>
+                <span>0</span>
+
+                <label for="saturate">Saturate</label>
+                <input type="range" id="saturate" value="0" data-unit="%"/>
+                <span>0</span>
+
+                <label for="invert">Invert</label>
+                <input type="range" id="invert" value="0" data-unit="%"/>
+                <span>0</span>
+
+                <label for="size">Size</label>
+                <input type="range" id="size" min="0" max="600" data-unit="px"/>
+                <span>0</span>
+
+                <label for="radius">Border radius</label>
+                <input type="range" id="radius" min="0" max="50" data-unit="%"/>
+                <span>0</span>
+
+                <label for="bg">Background body</label>
+                <select id="bg">
+
+                </select>
+            </section>
+        </main>
+        <script type="text/javascript" src="./js/main.js"></script>
+    </body>
+</html>

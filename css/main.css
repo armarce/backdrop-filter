@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap');
+
+/*
+Palette color: https://www.colourlovers.com/palette/1494627/Movistar_colors
+*/
+
+:root{
+    --green: #8DC63F;
+    --blue: #00517A;
+    --light-blue: #51C6D9;
+    --sea: #D3E1E4;
+    --light-sea: #DDE8EA;
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+body{
+    font-size: 16px;
+    font-family: 'PT Sans', sans-serif;    
+    background-image: url('https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/aurora.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+main{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 60rem));
+    gap: 4rem;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    height: 96vh;
+}
+main #box{
+    background-color: rgba(0, 0, 0, 0);
+    margin: 0 auto;
+    width: 20rem;
+    height: 20rem;
+    border: 1px solid gray;
+    border-radius: 5%;
+}
+main section{
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-bottom: 4rem;
+}
+main label{
+    line-height: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+main section input[type="color"]{
+    margin: 0.6rem 0 2rem 0;
+    position: relative
+}
+main section input[type="range"]{
+    margin-bottom: -1.6rem;
+    width: 80%;
+    position: relative;
+}
+main section input[type="color"]::after{
+    content: attr(value);
+    position: absolute;
+    display: block;
+    width: 7rem;
+    top: 0;
+    left: 6rem;
+    background: var(--sea);
+    padding: 0.5rem;
+    border-radius: .2rem;
+}
+select{
+    margin-top: 1rem;
+    width: 80%;
+    background-color: var(--light-blue);
+    padding: .2rem;
+    line-height: 2rem;
+}
+main section input[type="range"]::after{
+    content: attr(value);
+    position: absolute;
+    display: none;
+    width: 5rem;
+    top: -0.4rem;
+    left: 103%;
+    color: var(--light-sea);
+    background-color: var(--blue);
+    padding: 0.5rem;
+    border-radius: .2rem;
+    text-align: center;
+}
+main section span{
+    visibility: hidden;
+    position: relative;
+    width: 5.2rem;
+    top: -0.6rem;
+    left: 82%;
+    color: var(--light-sea);
+    background-color: var(--blue);
+    padding: 0.5rem;
+    border-radius: .3rem;
+    text-align: center;
+    opacity: 0.8;
+}
+
+main section span::before{
+    content: "";
+    position: absolute;
+    top: 0.7rem;
+    left: -1.4rem;
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent var(--blue) transparent transparent;
+}
