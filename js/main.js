@@ -1,3 +1,11 @@
+/*
+
+Developed by https://github.com/armarce
+
+12 - 08 - 2022
+
+*/
+
 class App{
 
     constructor(id, images){
