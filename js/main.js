@@ -8,12 +8,43 @@ Developed by https://github.com/armarce
 
 class App{
 
-    constructor(id, images){
+    constructor(id, outputContainer, images){
 
         this.images = images;
+        this.outputContainer = outputContainer;
         this.box = document.querySelector(`#${id}`);
-        localStorage.setItem('opacity', 0.99);
+        localStorage.clear();
+        localStorage.setItem('opacity', 0.50);
+        localStorage.setItem('rgba', 'rgba(255, 255, 255, 0.5)');
         this.cssProperties = window.getComputedStyle(this.box);
+
+        this.copyCode();
+
+    }
+
+    copyCode(){
+
+        let outputContainer = document.querySelector(`#${this.outputContainer}`);
+
+        let buttonCopy = outputContainer.nextElementSibling;
+
+        buttonCopy.addEventListener('click', () => {
+
+            navigator.clipboard.writeText(outputContainer.textContent).then(() => {
+
+                buttonCopy.setAttribute('value', 'Copied');
+
+            })
+            .catch();
+
+        });
+
+    }
+
+    setProperty(value){
+
+        this.box.style['backdrop-filter'] = value;
+        this.box.style['-webkit-backdrop-filter'] = value;
 
     }
 
@@ -51,6 +82,8 @@ class App{
         const rgb = window.getComputedStyle(this.box)['background-color'];
         let rgba = rgb.replace(/(rgb)/g, 'rgba').replace(/\)/g, `, ${opacity})`);
 
+        localStorage.setItem('rgba', rgba);
+
         this.box.style['background-color'] =  rgba;
 
     }
@@ -64,9 +97,12 @@ class App{
                 document.querySelectorAll(`#${id}`)[0].setAttribute('value', input.value.toUpperCase());
                 this.box.style['background-color'] = input.value;
                 this.setRGBA(localStorage.getItem('opacity'));
+
+                this.getCssCode();
     
             }
         );
+
     }
 
     opacity(id){
@@ -77,16 +113,22 @@ class App{
 
         input.addEventListener('input', () => {
 
-            let opacity = (input.value / 100) - 0.01;
+            let opacity = (input.value / 100);
+
+            opacity = parseFloat(opacity).toFixed(2);
+            
+            let rgba = localStorage.getItem('rgba');
+            rgba = rgba.replace(/(\d\.\d\d\))|(\d\.\d\))|(\s\d\))/g, `${opacity})`);
 
             localStorage.setItem('opacity', opacity);
-            
-            let rgba = window.getComputedStyle(this.box)['background-color'];
-            rgba = rgba.replace(/(\d\.\d\d\))|(\d\.\d\))|(\s\d\))/g, `${opacity})`);
+
+            localStorage.setItem('rgba', rgba);
 
             this.box.style['background-color'] =  rgba;
 
             this.toolTipUpdate(input, toolTip);
+
+            this.getCssCode();
 
         });
 
@@ -100,9 +142,15 @@ class App{
 
         input.addEventListener('input', () => {
 
-            this.box.style['backdrop-filter'] = `blur(${input.value}px)`;
+            let value = `blur(${input.value}${input.getAttribute('data-unit')})`;
+
+            this.setProperty(value);
+
+            localStorage.setItem('blur', value);
 
             this.toolTipUpdate(input, toolTip);
+
+            this.getCssCode();
         
         });
 
@@ -116,9 +164,15 @@ class App{
 
         input.addEventListener('input', () => {
             
-            this.box.style['backdrop-filter'] = `contrast(${input.value}%)`;
+            let value = `contrast(${input.value}${input.getAttribute('data-unit')})`;
+
+            this.setProperty(value);
+
+            localStorage.setItem('contrast', value);
 
             this.toolTipUpdate(input, toolTip);
+
+            this.getCssCode();
         
         });
 
@@ -132,13 +186,41 @@ class App{
 
         input.addEventListener('input', () => {
             
-            this.box.style['backdrop-filter'] = `brightness(${input.value}%)`;
+            let value = `brightness(${input.value}${input.getAttribute('data-unit')})`;
+
+            this.setProperty(value);
+
+            localStorage.setItem('brightness', value);
 
             this.toolTipUpdate(input, toolTip);
+
+            this.getCssCode();
         
         });
 
     }
+
+    saturate(id){
+
+        let [input, toolTip] = this.elements(id);
+
+        this.toolTipShow(input, toolTip);
+        
+        input.addEventListener('input', () => {
+
+            let value = `saturate(${input.value}${input.getAttribute('data-unit')})`;;
+            
+            this.setProperty(value);
+
+            localStorage.setItem('saturate', value);
+
+            this.toolTipUpdate(input, toolTip);
+
+            this.getCssCode();
+        
+        });
+
+    }    
 
     invert(id){
 
@@ -147,10 +229,16 @@ class App{
         this.toolTipShow(input, toolTip);
 
         input.addEventListener('input', () => {
+
+            let value = `invert(${input.value}${input.getAttribute('data-unit')})`;
             
-            this.box.style['backdrop-filter'] = `invert(${input.value}%)`;
+            this.setProperty(value);
+
+            localStorage.setItem('invert', value);
 
             this.toolTipUpdate(input, toolTip);
+
+            this.getCssCode();
         
         });
 
@@ -166,8 +254,8 @@ class App{
 
         input.addEventListener('input', () => {
 
-            this.box.style['width'] = `${input.value}px`;
-            this.box.style['height'] = `${input.value}px`;
+            this.box.style['width'] = `${input.value}${input.getAttribute('data-unit')}`;
+            this.box.style['height'] = `${input.value}${input.getAttribute('data-unit')}`;
 
             this.toolTipUpdate(input, toolTip);
 
@@ -185,28 +273,12 @@ class App{
 
         input.addEventListener('input', () => {
 
-            this.box.style['border-radius'] = `${input.value}%`;
+            this.box.style['border-radius'] = `${input.value}${input.getAttribute('data-unit')}`;
 
             this.toolTipUpdate(input, toolTip);
 
         });
         
-    }
-    
-    saturate(id){
-
-        let [input, toolTip] = this.elements(id);
-
-        this.toolTipShow(input, toolTip);
-        
-        input.addEventListener('input', () => {
-            
-            this.box.style['backdrop-filter'] = `saturate(${input.value}%)`;
-
-            this.toolTipUpdate(input, toolTip);
-        
-        });
-
     }
 
     selectImages(){
@@ -243,6 +315,30 @@ class App{
 
     }
 
+    getCssCode(){
+
+        let html = [];
+
+        if(localStorage.getItem('rgba') !== null) html.push(`background-color: ${localStorage.getItem('rgba')}`);
+        
+        if(localStorage.getItem('blur') !== null) html.push(`backdrop-filter: ${localStorage.getItem('blur')}`);
+
+        if(localStorage.getItem('contrast') !== null) html.push(`backdrop-filter: ${localStorage.getItem('contrast')}`);
+
+        if(localStorage.getItem('brightness') !== null) html.push(`backdrop-filter: ${localStorage.getItem('brightness')}`);
+
+        if(localStorage.getItem('saturate') !== null) html.push(`backdrop-filter: ${localStorage.getItem('saturate')}`);
+
+        if(localStorage.getItem('invert') !== null) html.push(`backdrop-filter: ${localStorage.getItem('invert')}`);
+
+        document.querySelector(`#${this.outputContainer}`).textContent = html.join(";\n") + ';';
+
+        document.querySelector(`#${this.outputContainer}`).nextElementSibling.style.visibility = 'visible';
+
+        document.querySelector(`#${this.outputContainer}`).nextElementSibling.setAttribute('value', 'Copy');
+
+    }
+
 }
 
 const images = [
@@ -258,7 +354,7 @@ const images = [
     'https://cdn.armcloud.store/206b9c3284cb4dabafdf5bf6ec21e929:images/bg/winter-landscape.jpg'
     ];
 
-const app = new App("box", images);
+const app = new App("box", 'outputContainer', images);
 
 app.color('color');
 
@@ -268,7 +364,7 @@ app.blur("blur");
 app.contrast("contrast");
 app.brightness("brightness");
 app.invert("invert");
+app.saturate("saturate");
 app.size("size");
 app.radius("radius");
-app.saturate("saturate");
 app.bgBody();

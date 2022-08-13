@@ -23,19 +23,20 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    color: white;
+    color: var(--light-sea);
 }
 *, *:before, *:after {
     box-sizing: inherit;
 }
 main{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30rem, 60rem));
-    gap: 4rem;
+    grid-template-columns: repeat(auto-fill, minmax(26rem, 60rem));
+    column-gap: 4rem;
+    row-gap: 2rem;
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    height: 96vh;
+    padding: 2rem 1rem;
 }
 main #box{
     background-color: rgba(0, 0, 0, 0);
@@ -47,8 +48,14 @@ main #box{
 }
 main section{
     display: grid;
+    background-color: rgba(60, 60, 60, 0.2) ;
     grid-template-columns: 1fr;
     padding-bottom: 4rem;
+    backdrop-filter: blur(60px);
+    backdrop-filter: contrast(60%);
+    backdrop-filter: brightness(80%);
+    padding: 2rem;
+    border-radius: 1rem;
 }
 main label{
     line-height: 2rem;
@@ -56,12 +63,13 @@ main label{
     font-weight: bold;
 }
 main section input[type="color"]{
-    margin: 0.6rem 0 2rem 0;
+    margin: 0.6rem 0 1.4rem 0;
+    width: 7rem;
     position: relative
 }
 main section input[type="range"]{
     margin-bottom: -1.6rem;
-    width: 80%;
+    width: 84%;
     position: relative;
 }
 main section input[type="color"]::after{
@@ -70,15 +78,15 @@ main section input[type="color"]::after{
     display: block;
     width: 7rem;
     top: 0;
-    left: 6rem;
+    left: 8rem;
     background: var(--sea);
     padding: 0.5rem;
     border-radius: .2rem;
 }
 select{
     margin-top: 1rem;
-    width: 80%;
-    background-color: var(--light-blue);
+    width: 84%;
+    background-color: var(--light-sea);
     padding: .2rem;
     line-height: 2rem;
 }
@@ -100,7 +108,7 @@ main section span{
     position: relative;
     width: 5.2rem;
     top: -0.6rem;
-    left: 82%;
+    left: 86%;
     color: var(--light-sea);
     background-color: var(--blue);
     padding: 0.5rem;
@@ -117,4 +125,45 @@ main section span::before{
     border-width: 7px;
     border-style: solid;
     border-color: transparent var(--blue) transparent transparent;
+}
+main pre{
+    display: block;
+    position: relative;
+    color: black;
+    background-color: var(--sea);
+    border-radius: 1rem;
+    padding: 2rem 0 2rem 5rem;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 1.8rem;
+    height: 15rem;
+    margin-top: 3rem;
+}
+main pre h2{
+    color: var(--blue);
+    font-size: 20px;
+    font-weight: bold;
+    transform: rotate(270deg);
+    position: absolute;
+    left: -6rem;
+    top: 4.3rem;
+    background-color: var(--light-blue);
+    padding: .6rem;
+    width: 15rem;
+    border: right;
+    text-align: center;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+main pre input{
+    position: absolute;
+    bottom: -1.4rem;
+    right: 2rem;
+    background-color: var(--green);
+    padding: 0.4rem;
+    width: 10rem;
+    border-radius: .4rem;
+    font-weight: bold;
+    visibility: hidden;
+    border: 1px solid var(--light-sea);
 }
