@@ -30,7 +30,7 @@ body{
 }
 main{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(26rem, 60rem));
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 60rem));
     column-gap: 4rem;
     row-gap: 2rem;
     margin: 0 auto;
